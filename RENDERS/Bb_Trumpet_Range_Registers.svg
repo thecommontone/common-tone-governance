@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 720 360"
+   width="720"
+   height="360"
+   version="1.1"
+   id="svg122"
+   sodipodi:docname="Bb_Trumpet_Range_Registers.svg"
+   inkscape:version="1.2 (dc2aeda, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs126" />
+  <sodipodi:namedview
+     id="namedview124"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.96537448"
+     inkscape:cx="278.64834"
+     inkscape:cy="181.2768"
+     inkscape:window-width="1309"
+     inkscape:window-height="898"
+     inkscape:window-x="0"
+     inkscape:window-y="29"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg122" />
+  <rect
+     x="0.0"
+     y="0.0"
+     width="720.0"
+     height="360.0"
+     rx="0"
+     fill="#FAFAFA"
+     stroke="none"
+     opacity="1"
+     id="rect2" />
+  <text
+     x="16.0"
+     y="22.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="13"
+     font-weight="bold"
+     font-style="normal"
+     fill="#222"
+     text-anchor="start"
+     id="text4">B♭ Trumpet — Written Range &amp; Registers</text>
+  <text
+     x="704.0"
+     y="22.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="9"
+     font-weight="normal"
+     font-style="italic"
+     fill="#666"
+     text-anchor="end"
+     id="text6">treble clef · sounds M2 lower than written</text>
+  <rect
+     x="20"
+     y="226.63918"
+     width="248"
+     height="27.426121"
+     rx="0"
+     fill="#e0e0e0"
+     stroke="none"
+     opacity="0.55"
+     id="rect8"
+     style="stroke-width:0.789507" />
+  <rect
+     x="20"
+     y="198.31569"
+     width="248"
+     height="35.180031"
+     rx="0"
+     fill="#f8c8b0"
+     stroke="none"
+     opacity="0.55"
+     id="rect10"
+     style="stroke-width:0.799772" />
+  <rect
+     x="20"
+     y="86.5"
+     width="248"
+     height="123.73412"
+     rx="0"
+     fill="#c8e6c8"
+     stroke="none"
+     opacity="0.55"
+     id="rect12"
+     style="stroke-width:0.968184" />
+  <rect
+     x="20"
+     y="74.217346"
+     width="248"
+     height="23.282652"
+     rx="0"
+     fill="#bfd8f0"
+     stroke="none"
+     opacity="0.55"
+     id="rect14"
+     style="stroke-width:0.727428" />
+  <rect
+     x="20"
+     y="50.145615"
+     width="248"
+     height="33"
+     rx="0"
+     fill="#f4b6c2"
+     stroke="none"
+     opacity="0.55"
+     id="rect16" />
+  <line
+     x1="24.0"
+     y1="191.0"
+     x2="264.0"
+     y2="191.0"
+     stroke="#333"
+     stroke-width="0.9"
+     opacity="1"
+     id="line18" />
+  <line
+     x1="24.0"
+     y1="169.0"
+     x2="264.0"
+     y2="169.0"
+     stroke="#333"
+     stroke-width="0.9"
+     opacity="1"
+     id="line20" />
+  <line
+     x1="24.0"
+     y1="147.0"
+     x2="264.0"
+     y2="147.0"
+     stroke="#333"
+     stroke-width="0.9"
+     opacity="1"
+     id="line22" />
+  <line
+     x1="24.0"
+     y1="125.0"
+     x2="264.0"
+     y2="125.0"
+     stroke="#333"
+     stroke-width="0.9"
+     opacity="1"
+     id="line24" />
+  <line
+     x1="24.0"
+     y1="103.0"
+     x2="264.0"
+     y2="103.0"
+     stroke="#333"
+     stroke-width="0.9"
+     opacity="1"
+     id="line26" />
+  <path
+     d="m 30.018241,190.60065 c -4.765757,-15.46208 -9.531513,-30.92415 -6.672059,-42.52071 2.859454,-11.59656 12.390967,-11.59656 14.29727,0 2.859454,11.59656 -3.812606,19.3276 -8.578362,11.59656 -5.718908,-11.59656 -5.718908,-34.78968 0.953151,-46.38624 6.672059,-11.59655 10.484665,0 6.672059,11.59656 -3.812605,11.59656 -6.672059,23.19312 -5.718908,42.52072 v 23.19311 z"
+     fill="none"
+     stroke="#222222"
+     stroke-width="2.2"
+     stroke-linejoin="round"
+     stroke-linecap="round"
+     id="path28" />
+  <circle
+     cx="30.0"
+     cy="179.0"
+     r="2"
+     fill="#222"
+     id="circle30" />
+  <line
+     x1="76"
+     y1="205"
+     x2="92"
+     y2="205"
+     stroke="#333333"
+     stroke-width="0.9"
+     opacity="1"
+     id="line32" />
+  <line
+     x1="76"
+     y1="219"
+     x2="92"
+     y2="219"
+     stroke="#333333"
+     stroke-width="0.9"
+     opacity="1"
+     id="line34" />
+  <line
+     x1="76"
+     y1="233"
+     x2="92"
+     y2="233"
+     stroke="#333333"
+     stroke-width="0.9"
+     opacity="1"
+     id="line36" />
+  <ellipse
+     cx="-9.1578484"
+     cy="247.91553"
+     rx="4.9940357"
+     ry="3.4741104"
+     transform="rotate(-22)"
+     fill="#222222"
+     id="ellipse38"
+     style="stroke-width:1.08567" />
+  <text
+     x="84"
+     y="245"
+     font-family="'Gill Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+     font-size="8px"
+     font-weight="bold"
+     font-style="normal"
+     fill="#222222"
+     text-anchor="middle"
+     id="text40">F#3</text>
+  <line
+     x1="111"
+     y1="205"
+     x2="127"
+     y2="205"
+     stroke="#333333"
+     stroke-width="0.9"
+     opacity="1"
+     id="line42" />
+  <ellipse
+     cx="33.540527"
+     cy="234.65086"
+     rx="4.5999999"
+     ry="3.2"
+     transform="rotate(-22)"
+     fill="#222222"
+     id="ellipse44" />
+  <text
+     x="119"
+     y="219"
+     font-family="'Gill Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+     font-size="8px"
+     font-weight="bold"
+     font-style="normal"
+     fill="#222222"
+     text-anchor="middle"
+     id="text46">C4</text>
+  <ellipse
+     cx="119.2334"
+     cy="156.0269"
+     rx="4.5999999"
+     ry="3.2"
+     transform="rotate(-22)"
+     fill="#222222"
+     id="ellipse48" />
+  <text
+     x="169"
+     y="114"
+     font-family="'Gill Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+     font-size="8px"
+     font-weight="bold"
+     font-style="normal"
+     fill="#222222"
+     text-anchor="middle"
+     id="text50">G5</text>
+  <line
+     x1="201"
+     y1="89"
+     x2="217"
+     y2="89"
+     stroke="#333333"
+     stroke-width="0.9"
+     opacity="1"
+     id="line52" />
+  <line
+     x1="201"
+     y1="75"
+     x2="217"
+     y2="75"
+     stroke="#333333"
+     stroke-width="0.9"
+     opacity="1"
+     id="line54" />
+  <ellipse
+     cx="165.68597"
+     cy="147.83159"
+     rx="4.5999999"
+     ry="3.2"
+     transform="rotate(-22)"
+     fill="#222222"
+     id="ellipse56" />
+  <text
+     x="209"
+     y="87"
+     font-family="'Gill Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+     font-size="8px"
+     font-weight="bold"
+     font-style="normal"
+     fill="#222222"
+     text-anchor="middle"
+     id="text58">C6</text>
+  <line
+     x1="241"
+     y1="89"
+     x2="257"
+     y2="89"
+     stroke="#333333"
+     stroke-width="0.9"
+     opacity="1"
+     id="line60" />
+  <line
+     x1="241"
+     y1="75"
+     x2="257"
+     y2="75"
+     stroke="#333333"
+     stroke-width="0.9"
+     opacity="1"
+     id="line62" />
+  <line
+     x1="241"
+     y1="65"
+     x2="257"
+     y2="65"
+     stroke="#333333"
+     stroke-width="0.9"
+     opacity="1"
+     id="line64" />
+  <ellipse
+     cx="206.51944"
+     cy="153.54402"
+     rx="4.5999999"
+     ry="3.2"
+     transform="rotate(-22)"
+     fill="#222222"
+     id="ellipse66" />
+  <text
+     x="249"
+     y="85"
+     font-family="'Gill Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+     font-size="8px"
+     font-weight="bold"
+     font-style="normal"
+     fill="#222222"
+     text-anchor="middle"
+     id="text68">E6</text>
+  <text
+     x="282.0"
+     y="44.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="10"
+     font-weight="bold"
+     font-style="normal"
+     fill="#222"
+     text-anchor="start"
+     id="text70">Registers (written)</text>
+  <rect
+     x="282.0"
+     y="49.0"
+     width="12.0"
+     height="11.0"
+     rx="0"
+     fill="#E0E0E0"
+     stroke="#A0A0A0"
+     opacity="0.85"
+     id="rect72" />
+  <text
+     x="300.0"
+     y="58.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="10"
+     font-weight="bold"
+     font-style="normal"
+     fill="#222"
+     text-anchor="start"
+     id="text74">Pedal / sub-pedal  (C3–F3)</text>
+  <text
+     x="704.0"
+     y="58.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="10"
+     font-weight="bold"
+     font-style="normal"
+     fill="#888"
+     text-anchor="end"
+     id="text76">x</text>
+  <text
+     x="300.0"
+     y="70.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="8.5"
+     font-weight="normal"
+     font-style="normal"
+     fill="#444"
+     text-anchor="start"
+     id="text78">Below the practical horn. Lip-bent fundamentals; specialist effect only.</text>
+  <rect
+     x="282.0"
+     y="79.0"
+     width="12.0"
+     height="11.0"
+     rx="0"
+     fill="#F8C8B0"
+     stroke="#D88E66"
+     opacity="0.85"
+     id="rect80" />
+  <text
+     x="300.0"
+     y="88.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="10"
+     font-weight="bold"
+     font-style="normal"
+     fill="#222"
+     text-anchor="start"
+     id="text82">Low register (stuffy)  (F#3–C4)</text>
+  <text
+     x="704.0"
+     y="88.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="10"
+     font-weight="bold"
+     font-style="normal"
+     fill="#D33"
+     text-anchor="end"
+     id="text84">!!</text>
+  <text
+     x="300.0"
+     y="100.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="8.5"
+     font-weight="normal"
+     font-style="normal"
+     fill="#444"
+     text-anchor="start"
+     id="text86">Tone is thick and resistant. Soft dynamics are very hard. Avoid sustained pp.</text>
+  <rect
+     x="282.0"
+     y="109.0"
+     width="12.0"
+     height="11.0"
+     rx="0"
+     fill="#C8E6C8"
+     stroke="#5DC06E"
+     opacity="0.85"
+     id="rect88" />
+  <text
+     x="300.0"
+     y="118.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="10"
+     font-weight="bold"
+     font-style="normal"
+     fill="#222"
+     text-anchor="start"
+     id="text90">Middle (the sweet spot)  (C#4–G5)</text>
+  <text
+     x="704.0"
+     y="118.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="10"
+     font-weight="bold"
+     font-style="normal"
+     fill="#777"
+     text-anchor="end"
+     id="text92">✓</text>
+  <text
+     x="300.0"
+     y="130.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="8.5"
+     font-weight="normal"
+     font-style="normal"
+     fill="#444"
+     text-anchor="start"
+     id="text94">Resonant, flexible, agile. Most idiomatic writing lives here.</text>
+  <rect
+     x="282.0"
+     y="139.0"
+     width="12.0"
+     height="11.0"
+     rx="0"
+     fill="#BFD8F0"
+     stroke="#4A90D9"
+     opacity="0.85"
+     id="rect96" />
+  <text
+     x="300.0"
+     y="148.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="10"
+     font-weight="bold"
+     font-style="normal"
+     fill="#222"
+     text-anchor="start"
+     id="text98">Upper register  (G#5–C6)</text>
+  <text
+     x="704.0"
+     y="148.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="10"
+     font-weight="bold"
+     font-style="normal"
+     fill="#D33"
+     text-anchor="end"
+     id="text100">!</text>
+  <text
+     x="300.0"
+     y="160.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="8.5"
+     font-weight="normal"
+     font-style="normal"
+     fill="#444"
+     text-anchor="start"
+     id="text102">Brilliant and athletic; costs stamina. Plan rest before &amp; after.</text>
+  <rect
+     x="282.0"
+     y="169.0"
+     width="12.0"
+     height="11.0"
+     rx="0"
+     fill="#F4B6C2"
+     stroke="#D96BA0"
+     opacity="0.85"
+     id="rect104" />
+  <text
+     x="300.0"
+     y="178.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="10"
+     font-weight="bold"
+     font-style="normal"
+     fill="#222"
+     text-anchor="start"
+     id="text106">Altissimo / extreme  (C#6–E6)</text>
+  <text
+     x="704.0"
+     y="178.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="10"
+     font-weight="bold"
+     font-style="normal"
+     fill="#D33"
+     text-anchor="end"
+     id="text108">!!!</text>
+  <text
+     x="300.0"
+     y="190.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="8.5"
+     font-weight="normal"
+     font-style="normal"
+     fill="#444"
+     text-anchor="start"
+     id="text110">Lead-trumpet territory. Brief moments only; never a default.</text>
+  <line
+     x1="16.0"
+     y1="322.0"
+     x2="704.0"
+     y2="322.0"
+     stroke="#CCC"
+     stroke-width="0.6"
+     opacity="1"
+     id="line112" />
+  <text
+     x="16.0"
+     y="334.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="9.5"
+     font-weight="bold"
+     font-style="normal"
+     fill="#222"
+     text-anchor="start"
+     id="text114">Sounding range:</text>
+  <text
+     x="108.0"
+     y="334.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="9.5"
+     font-weight="normal"
+     font-style="normal"
+     fill="#333"
+     text-anchor="start"
+     id="text116">E3 – B♭5 (concert) — i.e., a written C4 sounds B♭3 (concert).</text>
+  <text
+     x="16.0"
+     y="348.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="9"
+     font-weight="bold"
+     font-style="normal"
+     fill="#666"
+     text-anchor="start"
+     id="text118">Legend:</text>
+  <text
+     x="66.0"
+     y="348.0"
+     font-family="Gill Sans, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif"
+     font-size="9"
+     font-weight="normal"
+     font-style="normal"
+     fill="#666"
+     text-anchor="start"
+     id="text120">✓ idiomatic     ! costs stamina     !! treat with care     !!! specialist     x rare/effect only</text>
+</svg>

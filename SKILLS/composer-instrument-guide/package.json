@@ -1,0 +1,12 @@
+{
+  "name": "composer-instrument-guide",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Render Doug Smith's composer field-guide handouts (.docx). Driven by build_doc.js.",
+  "scripts": {
+    "build": "node scripts/build_doc.js"
+  },
+  "dependencies": {
+    "docx": "^8.5.0"
+  }
+}

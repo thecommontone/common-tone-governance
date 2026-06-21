@@ -1,0 +1,57 @@
+# Brass family config for composer-instrument-guide.
+# Loaded by run.py based on `instrument.family` and injected into the spec
+# as `_family_config`. Provides:
+#   - section_order: ordered list of section keys to render
+#   - headings: per-section heading vocabulary overrides
+#   - default_tiers: tier overrides for this family
+#   - default_pitfalls: list appended to per-instrument pitfalls
+#   - default_listen: list appended to per-instrument listen entries
+#
+# NOTE: This is a TEMPLATE, not enforcement. Per-instrument YAMLs can still
+# override section presence (by omitting blocks), and `_tiers:` overrides win.
+
+section_order:
+  - title
+  - intro
+  - voice
+  - players_pov
+  - reading_writing
+  - asides
+  - range
+  - articulation
+  - mutes
+  - phrasing
+  - pitfalls
+  - history
+  - listen
+  - checklist
+  - footer
+
+headings:
+  voice:           "Voice & character"
+  reading_writing: "Reading & writing the part"
+  range:           "Range, registers, and danger zones"
+  articulation:    "Articulation & playing techniques"
+  mutes_brass:     "Mutes — the instrument's wardrobe"
+  phrasing:        "Breath, stamina, and phrasing"
+  pitfalls:        "Common pitfalls"
+  listen:          "Listen for it in…"
+  history:         "A short history"
+  players_pov:     "From the player's chair"
+  checklist:       "Composer's first-pass checklist"
+
+# Family-wide tier defaults — same as system defaults for now, but the slot
+# is here so future families can shift things (e.g., for strings we'd promote
+# bowing from tier 2 → tier 1 since it's family-essential).
+default_tiers: {}
+
+# Universal-for-brass pitfalls. Per-instrument YAMLs add their own; the family
+# defaults are appended (deduped by exact text match).
+default_pitfalls:
+  - "Underestimating stamina cost — brass embouchures tire faster than non-brass writers expect"
+  - "Forgetting that 'con sord.' alone defaults to a straight mute — always specify the mute by name"
+  - "Failing to leave 1–2 seconds for the player to insert or remove a physical mute"
+
+# Universal-for-brass repertoire pointers — these illustrate the family voice
+# rather than any one instrument. Per-instrument YAMLs add their own.
+default_listen: []

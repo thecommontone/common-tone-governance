@@ -1,0 +1,212 @@
+# Horn in F — Composer's Field Guide spec.
+# Driving file for the composer-instrument-guide skill.
+# Pitches are in WRITTEN form (treble clef as the horn reads it).
+
+instrument:
+  name: Horn in F
+  family: brass
+  clef: treble
+  transposition_blurb: "sounds P5 lower than written"
+  sounding_blurb: "F2 – F5 (concert) — i.e., a written C4 sounds F3 (concert)."
+
+  # The transposition rule: written is one perfect 5th HIGHER than concert.
+  transposition:
+    written_higher_than_concert: P5
+    written_example_key: G
+    concert_example_key: C
+    written_example_pitches: ["g4", "b4"]
+    concert_example_pitches: ["c4", "e4"]
+    written_chord_label: "G"
+    concert_chord_label: "C"
+
+intro:
+  paragraph: >
+    The horn in F (often called the "French horn", though the modern instrument is
+    German in origin) is the soul of the orchestral brass section — equally at home in
+    heroic outdoor calls and the most interior, vocal melodies. It is a conical-bore
+    brass instrument with rotary valves, played with the right hand cupped inside the
+    bell. Most modern professional instruments are "double horns" — F and B♭ tubing
+    combined, switched by a thumb trigger — but you write for the F side regardless.
+    The single thing you must internalize before writing for it
+  paragraph_emphasis: "the horn in F sounds a perfect 5th lower than written."
+
+voice:
+  paragraph: >
+    The horn is the orchestra's pastoral voice and its heroic voice at once — descended
+    from the natural hunting horn, it carries the outdoors inside the concert hall. It
+    is the only brass instrument capable of speaking like a string section in soft
+    dynamics, and the only one whose timbre changes radically with the right hand inside
+    the bell. Composers write for it as if it were two instruments: the heroic herald
+    in fanfares and tutti, and the singing pastoral voice in slow movements.
+  signature_gestures:
+    - "The hunting call — open 5ths and arpeggiated triads on dotted rhythms"
+    - "The pastoral lyrical line — long sustained phrases in the middle register"
+    - "The heroic high call — sustained tones above the staff, often over tremolo strings"
+    - "The hand-stopped snarl (gestopft, +) — nasal, brassy, often as orchestral menace"
+  archetypal_uses:
+    - "Hunting / outdoor / nature (Beethoven 6, Strauss Alpine Symphony)"
+    - "Heroic / declamatory (Strauss Don Juan, Brahms 1 finale, Sibelius 2)"
+    - "Pastoral / interior song (Brahms 3 third mvt., Mahler 9 fourth mvt.)"
+    - "Sublime / interior (Brahms 4 slow mvt. opening; Mahler 5 third mvt.)"
+
+players_pov:
+  paragraph: >
+    Horn players are the orchestra's tightrope walkers. Cracked notes are part of the
+    job — even the world's best players miss occasionally, because the natural harmonic
+    series gives them many partials to choose from on every fingering. They worry about
+    endurance more than any other brass player; they worry about the high tones at the
+    end of a long movement; they worry about the cold instrument warming up fast enough
+    after silence. They love writing that gives them ROOM to breathe, that uses the
+    instrument's COLOR (not just its volume), and that respects the difference between
+    a heroic moment and a sustained heroic passage — the second is much harder than the
+    first.
+
+history:
+  origin: >
+    The modern horn descends directly from the natural hunting horn — coiled brass
+    tubing, no valves, played by selecting partials on the harmonic series of whatever
+    crook (length of tubing) was inserted to match the key of the piece. Its evolution
+    is a 250-year arc from outdoor signal-instrument to fully chromatic concert-hall
+    voice.
+  timeline:
+    - {era: "pre-1750",       note: "Natural horn — no valves; player swaps crooks for different keys"}
+    - {era: "ca. 1750",       note: "Hand-stopping technique developed (Hampel, Punto) — partial chromaticism via right hand in the bell"}
+    - {era: "1815",           note: "Stölzel & Blühmel patent the valve mechanism"}
+    - {era: "mid–late 19th c.", note: "Valve horn gradually replaces natural horn in orchestras"}
+    - {era: "ca. 1900",       note: "Double horn (F + B♭) becomes the professional standard"}
+    - {era: "modern",         note: "Triple horns (F + B♭ + descant high F) for solo and high-tessitura work"}
+  family_tree: "Wagner tuba · Vienna horn · Mellophone (modern siblings) · Natural horn · Post horn · Alphorn (period ancestors)"
+
+definition_box:
+  title: "Transposition (in plain English)"
+  body: >
+    Write the horn part a perfect 5th HIGHER than the concert pitch you want to hear.
+    If you want to hear concert C, write G for the horn. Key signatures shift the same
+    way: concert F major (1 flat) becomes written C major (no accidentals); concert
+    C major (no accidentals) becomes written G major (1 sharp).
+
+asides:
+  - kind: pedantry
+    title: "Pedestal of Pedantry — Why F? Why a thumb trigger?"
+    body: >
+      Horns historically came in many "crooks" (B♭ alto, A, G, F, E, E♭, D, C), with the
+      player physically swapping tubing to match the key of the piece. F won out because
+      its tube length sits in the sweet spot — long enough to be warm, short enough to
+      be agile. The modern instrument is almost always a DOUBLE horn: F and B♭ tubing
+      combined, switched by a thumb valve, so the upper register gets the security of the
+      shorter B♭ side while the middle and low keep F's warmth. You still write for it
+      as a Horn in F; the B♭ side is the player's secret weapon, not your concern.
+      Older scores used many transpositions ("Horn in E♭", "Horn in D") and often
+      omitted key signatures; modern publishers normalize. Trust your part editor.
+
+# Zones in the range diagram. ORDER LOW → HIGH in YAML for human readability;
+# the renderer flips the legend to read HIGH → LOW automatically.
+zones:
+  - name: "Pedal / sub-pedal"
+    written_range: ["F2", "B2"]
+    color: "#E0E0E0"
+    border: "#A0A0A0"
+    danger: "x"
+    blurb: "Written in bass clef. Sub-pedal effect; very specialist (Wagner, Mahler)."
+
+  - name: "Low register (dark)"
+    written_range: ["C3", "F#3"]
+    color: "#F8C8B0"
+    border: "#D88E66"
+    danger: "!!"
+    blurb: "Dark, fundamental, can be murky in fast passagework. Soft dynamics demanding."
+
+  - name: "Middle (the sweet spot)"
+    written_range: ["G3", "G5"]
+    color: "#C8E6C8"
+    border: "#5DC06E"
+    danger: "✓"
+    blurb: "The heroic and lyrical core. A vast, flexible, characteristic two-octave band."
+
+  - name: "Upper register"
+    written_range: ["G#5", "C6"]
+    color: "#BFD8F0"
+    border: "#4A90D9"
+    danger: "!"
+    blurb: "Heroic and brilliant. Costs stamina sharply; build in recovery."
+
+  - name: "Altissimo / extreme"
+    written_range: ["C#6", "F6"]
+    color: "#F4B6C2"
+    border: "#D96BA0"
+    danger: "!!!"
+    blurb: "Specialist territory. Brief gestures only; never a default."
+
+range_caption: >
+  The chart above is in WRITTEN pitch. The practical professional range is C3 to C6
+  (written), with the sub-pedal F2–B2 reserved for specialist effects (Wagner, Mahler,
+  Strauss). When in doubt, write in the green band — the horn's middle register is
+  enormous, spanning two full octaves, and almost everything idiomatic lives there. The
+  horn has the highest stamina cost of any orchestral brass; treat upper-register
+  writing as a precious resource and ALWAYS plan rest after.
+
+articulation:
+  - name: "Single tongue"
+    description: "default articulation. Slower than trumpet at speed — effective up to roughly ♩=120 in 16ths."
+  - name: "Double tongue (T-K-T-K)"
+    description: "standard for fast 16th-note passages, just slower in absolute terms than trumpet."
+  - name: "Triple tongue (T-T-K or T-K-T)"
+    description: "standard for fast triplets."
+  - name: "Slurs / lip slurs"
+    description: "the horn has the smoothest slurs of any brass instrument; lip slurs across partials are extremely fluent."
+  - name: "Hand stopping (gestopft, '+')"
+    description: "right hand fully closes the bell. Pitch raised, tone becomes nasal, snarling, brassy. Notation: + above the note; o (open) to release. Done with the existing hand — no mute insertion needed."
+  - name: "Flutter tongue (Frullato / Flz.)"
+    description: "rolled R against the air stream. Highly characteristic in late-Romantic and modern horn writing."
+  - name: "Glissando"
+    description: "lip slurs through the harmonic series produce the recognizable horn glissando, best on a single fingering."
+  - name: "Vibrato"
+    description: "traditionally minimal in orchestral horn playing; jazz/popular styles use more. Do NOT request vibrato unless you specifically want it."
+
+mutes:
+  - name: "Straight"
+    sound: "Bright, distant, focused — pulls the bloom off the tone."
+    notation: "con sord. (straight) … senza sord."
+  - name: "Cup"
+    sound: "Softer, gauzy, more distant — less common than on trumpet."
+    notation: "con sord. (cup)"
+  - name: "Stopped (hand)"
+    sound: "Nasal, snarling, brassy. The signature horn special effect — done with the hand already in the bell."
+    notation: "+ (closed)   o (open)"
+
+mute_caveat: >
+  The horn is unusual: hand stopping (+) is a true muting effect done WITH THE HAND
+  ALREADY IN THE BELL — no insertion time required. You can move from open to + and
+  back instantly. Physical mutes (straight, cup) require 1–2 seconds to insert or
+  remove — leave a rest. Always specify the mute by name; "con sord." alone defaults
+  to a straight mute, which may not be what you want.
+
+phrasing:
+  - "Reasonable breath at moderate dynamic: 4–6 bars at ♩=72. Less when loud, less again when high."
+  - "The horn has the HIGHEST stamina cost of any orchestral brass instrument. The lips and the embouchure tire faster than on trumpet or trombone."
+  - "Build in rest aggressively. After a sustained high passage, give the player a minimum of 4–8 bars before any exposed entrance."
+  - "Cracked notes are a horn fact of life — even great players miss occasionally. Don't write a part that requires a perfect attack on every entrance under stress."
+
+pitfalls:
+  - "Writing fast tongued passages above the staff — the horn is the slowest brass to articulate up high"
+  - "Asking for vibrato by default — orchestral horn playing is traditionally vibrato-light"
+  - "Confusing 'con sord.' with hand-stopping (+) — they are separate techniques producing different colors"
+  - "Forgetting that cracked notes are a fact of life — don't write parts that demand perfect attack on every exposed entrance"
+  - "Underestimating stamina cost — the horn tires faster than any other orchestral brass"
+
+listen:
+  - {piece: "Brahms — Symphony No. 1, finale", role: "the alphorn-like horn solo at the breakthrough — the most famous horn moment in symphonic music"}
+  - {piece: "Strauss — Don Juan", role: "the heroic main theme on four horns in unison"}
+  - {piece: "Mahler — Symphony No. 3, mvt. 3", role: "the offstage post horn solo — pastoral nostalgia distilled"}
+  - {piece: "Britten — Serenade for Tenor, Horn and Strings", role: "the horn as obbligato lyrical voice"}
+  - {piece: "Wagner — Siegfried", role: "the hunting-call leitmotif as Siegfried's horn theme"}
+  - {piece: "Tchaikovsky — Symphony No. 5, mvt. 2", role: "one of the great horn solos in the Romantic repertoire"}
+
+checklist:
+  title: "Composer's first-pass checklist"
+  items:
+    - "Did you transpose? Wrote the part a perfect 5th HIGHER than concert?"
+    - "Stay in the green zone unless you have a reason. Save above G5 for arrivals."
+    - "Counted rests by the minute. The horn tires faster than trumpet — be generous."
+    - "Specified mute by name (or hand-stopping with +); left time for physical mutes."
+    - "No sustained ff in the altissimo. No sustained pp below the staff."

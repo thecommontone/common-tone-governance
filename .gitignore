@@ -1,0 +1,16 @@
+# GOVERNANCE — outer governance repo
+# Track the durable governance content (vault maps, role policy, skills,
+# scheduled tasks, small reports); ignore large regeneratable artifacts.
+
+# Validator JSON reports (~30 MB each, ~2 GB total) — regenerate via ctsf_validator.py.
+# The smaller per-file .csv matrices are kept for history.
+VALIDATION_REPORTS/*.json
+
+# Large generated sitemaps (multi-MB) — regenerate via the vault-sitemap skill.
+VAULT_MAPS/sitemap_*.md
+
+# Scratch / cruft
+__write_test.txt
+__pycache__/
+*.pyc
+.DS_Store
