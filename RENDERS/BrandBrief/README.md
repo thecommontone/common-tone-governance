@@ -4,7 +4,7 @@ These `.docx` and `.pdf` files are **rendered artifacts**, not source.
 
 The canonical `.md` source lives in the vault:
 
-- `The_Common_Tone_Project/01_ADMIN_AND_POLICY/brand/The Common Tone - Brand Brief.md`
+- `ADMIN/brand/99_ARCHIVE/2026-08-10_style-doc-cleanup/The Common Tone - Brand Brief.md` (archived 2026-08-10; superseded by `CLAUDE_DESIGN_KIT/DESIGN.md`)
 
 The `.docx` and `.pdf` versions here are frozen at their original render time (2026-04-06). They were extracted from the `.docx` by the 2026-04-20 Markdown-First cleanup (Batch E of the excision/quarantine campaign) and demoted out of the inner-vault tree.
 
