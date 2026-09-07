@@ -1,0 +1,6 @@
+{
+  "_comment": "Machine-readable provider mapping for MODEL_ROUTING_POLICY.md. state.py refuses models not listed here (refuse over guess) — extend this file deliberately, never improvise a tier. Entries are EXACT model identifiers as the provider API reports them; the short aliases exist for interactive use, and the run ledger always preserves the verbatim model string alongside its tier. Concrete identifiers for both providers are present; VERIFY them against the live APIs at the calibration benchmark and correct here if a provider has moved on.",
+  "economy": ["haiku", "claude-haiku-4-5", "claude-haiku-4-5-20251001", "luna", "gpt-5.6-luna"],
+  "balanced": ["sonnet", "claude-sonnet-5", "terra", "gpt-5.6-terra"],
+  "frontier": ["opus", "claude-opus-5", "sol", "gpt-5.6-sol"]
+}

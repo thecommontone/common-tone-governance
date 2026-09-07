@@ -1,0 +1,22 @@
+# Codex discovery metadata for corpus-harvest (assistant-agnostic skill).
+# Format per Codex's documented schema (review rounds 2026-08-28):
+# interface.short_description 25-64 chars; policy is a mapping with
+# allow_implicit_invocation; dependencies (if present) is a mapping whose
+# tools: lists MCP dependencies only. This skill needs no MCP tools; its
+# skill/script/runtime requirements are documented in SKILL.md.
+interface:
+  display_name: "Corpus Harvest"
+  short_description: "Supervised transcript-corpus extraction for the vault"
+  default_prompt: >-
+    Use $corpus-harvest to work the harvest program in the staging folder
+    Doug names. Read the vault CLAUDE.md and PLAIN_SIGHT_COMPACT.md, then the
+    program's RUNBOOK.md, then resume mechanically from STATE.json
+    (scripts/state.py show --root <staging>). Follow SKILL.md's stage
+    procedures exactly; stop at Gate 1 (directive ratification) and Gate 2
+    (Doug's rulings) — record gate events only through the state.py CLI,
+    never by editing STATE.json by hand.
+# Doug's ruling, 2026-08-28: discoverable. Codex may surface/engage the skill
+# for harvest-shaped requests; the no-self-launch rail and both approval gates
+# still stop all real action.
+policy:
+  allow_implicit_invocation: true

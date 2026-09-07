@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "corpus-harvest/ACQUISITION_RECEIPT.schema.json",
+  "title": "corpus-harvest acquisition receipt (RAW/_RECEIPTS/<item_id>.json, or one receipt per batch)",
+  "description": "Written by the Stage-0 adapter for every acquired item. Capability-based execution: the adapter runs a fixed command shape with validated arguments — no raw URL interpolation into shell strings.",
+  "type": "object",
+  "required": ["item_id", "adapter", "source_locator", "acquired_at", "tool", "files"],
+  "additionalProperties": false,
+  "properties": {
+    "item_id": { "type": "string" },
+    "adapter": { "enum": ["youtube", "local-folder"] },
+    "source_locator": { "type": "string" },
+    "source_url": { "type": ["string", "null"] },
+    "published_at": { "type": ["string", "null"] },
+    "acquired_at": { "type": "string", "format": "date-time" },
+    "tool": {
+      "type": "object",
+      "required": ["name", "version"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "description": "e.g. 'yt-dlp', or 'copy' for local-folder" },
+        "version": { "type": "string" }
+      }
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256", "bytes"],
+        "additionalProperties": false,
+        "properties": {
+          "path": { "type": "string", "description": "Relative to staging root; always under RAW/" },
+          "sha256": { "type": "string" },
+          "bytes": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "notes": { "type": ["string", "null"] }
+  }
+}

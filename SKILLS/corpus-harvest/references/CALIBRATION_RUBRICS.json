@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "survey": {
+    "purpose": "High-recall Stage-2 routing. Bounded false-positive routing is recoverable downstream; fabricated or miscredited evidence is not.",
+    "rules": {
+      "target_recall": {"operator": "gte", "threshold": 0.9},
+      "primary_repertoire_accuracy": {"operator": "gte", "threshold": 1.0},
+      "fabrications": {"operator": "eq", "threshold": 0},
+      "attribution_errors": {"operator": "eq", "threshold": 0},
+      "misroute_rate": {"operator": "lte", "threshold": 0.1}
+    },
+    "measured_not_gated": ["quote_fidelity"]
+  },
+  "extraction": {
+    "purpose": "Stage-3 evidence extraction. Every routed claim and every quotation must be correct before evidence can advance.",
+    "rules": {
+      "target_recall": {"operator": "gte", "threshold": 0.9},
+      "primary_repertoire_accuracy": {"operator": "gte", "threshold": 1.0},
+      "fabrications": {"operator": "eq", "threshold": 0},
+      "attribution_errors": {"operator": "eq", "threshold": 0},
+      "misroute_rate": {"operator": "eq", "threshold": 0.0},
+      "quote_fidelity": {"operator": "eq", "threshold": 1.0}
+    },
+    "measured_not_gated": []
+  }
+}

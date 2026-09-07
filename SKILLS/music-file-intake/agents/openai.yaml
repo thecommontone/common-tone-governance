@@ -1,0 +1,6 @@
+interface:
+  display_name: "Music File Intake"
+  short_description: "Safely ingest and route Common Tone research"
+  default_prompt: "Use $music-file-intake to validate and route this research material through the Common Tone Ingestion Gate."
+policy:
+  allow_implicit_invocation: true

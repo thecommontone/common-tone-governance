@@ -1,0 +1,343 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "corpus-harvest/STATE.schema.json",
+  "title": "corpus-harvest STATE.json",
+  "description": "Machine authority for one harvest program. Single-writer, atomic updates (write temp + rename). PROGRESS.md is generated FROM this file, never the reverse. A schema_version the running skill does not know is flagged to Doug, never silently migrated.",
+  "type": "object",
+  "required": [
+    "schema_version", "skill", "program", "chunk_policy", "stages", "gates",
+    "runs", "anomalies", "dependencies", "writer"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+$" },
+
+    "skill": {
+      "type": "object",
+      "required": ["name", "version"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "const": "corpus-harvest" },
+        "version": { "type": "string" },
+        "install_checksum": { "type": ["string", "null"], "description": "CHECKSUMS.txt digest of the installed copy that created this program; mismatch on resume is flagged, not overwritten" }
+      }
+    },
+
+    "program": {
+      "type": "object",
+      "required": ["source_slug", "adapter", "source_locator", "created_at", "created_by", "staging_root"],
+      "additionalProperties": false,
+      "properties": {
+        "staging_root_recorded": { "type": ["string", "null"], "description": "Original staging_root recorded at init, kept as provenance when a preserved/copied staging tree is loaded from a different location (staging_root rebinds to the actual location at load)" },
+        "source_slug": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" },
+        "adapter": { "enum": ["youtube", "local-folder"] },
+        "source_locator": { "type": "string", "description": "Channel URL or absolute path to the local transcript folder — as supplied by Doug" },
+        "created_at": { "type": "string", "format": "date-time" },
+        "created_by": { "type": "string", "description": "Assistant identifier, e.g. 'claude-cowork', 'codex'" },
+        "staging_root": { "type": "string", "description": "Absolute path: __MY_BOOK/_CT_RESEARCH_INTAKE/<source_slug>/" }
+      }
+    },
+
+    "chunk_policy": {
+      "type": "object",
+      "required": ["word_limit", "token_ceiling", "frozen_at"],
+      "additionalProperties": false,
+      "properties": {
+        "word_limit": { "type": "integer", "minimum": 1, "description": "Default 90000 (empirical, 12tone program)" },
+        "token_ceiling": { "type": "integer", "minimum": 1, "description": "Conservative cross-assistant ceiling FROZEN at program creation; chunks any participating assistant can resume" },
+        "frozen_at": { "type": "string", "format": "date-time" },
+        "rechunk_history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["retired_plan_hash", "reason", "at", "by"],
+            "additionalProperties": false,
+            "properties": {
+              "retired_plan_hash": { "type": "string" },
+              "reason": { "type": "string" },
+              "at": { "type": "string", "format": "date-time" },
+              "by": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+
+    "stages": {
+      "type": "object",
+      "description": "One entry per pipeline stage. A stage is 'blocked' only with a blocking anomaly id.",
+      "required": ["s0_acquire", "s1_normalize", "s2_survey", "s3_deep_passes", "s4_merge_validate", "s5_canonical_intake"],
+      "additionalProperties": false,
+      "patternProperties": {},
+      "properties": {
+        "s0_acquire":          { "$ref": "#/$defs/stage" },
+        "s1_normalize":        { "$ref": "#/$defs/stage" },
+        "s2_survey":           { "$ref": "#/$defs/stage" },
+        "s3_deep_passes":      { "$ref": "#/$defs/stage" },
+        "s4_merge_validate":   { "$ref": "#/$defs/stage" },
+        "s5_canonical_intake": { "$ref": "#/$defs/stage" }
+      }
+    },
+
+    "gates": {
+      "type": "object",
+      "required": ["gate1_directives", "gate2_rulings"],
+      "additionalProperties": false,
+      "properties": {
+        "gate1_directives": {
+          "type": "object",
+          "required": ["status"],
+          "additionalProperties": false,
+          "properties": {
+            "status": { "enum": ["pending", "proposed", "ratified"] },
+            "proposal_file": { "type": ["string", "null"] },
+            "proposal_sha256": { "type": ["string", "null"], "description": "sha256 of the proposal file recorded at gate1-propose time; ratification refuses if the file's bytes have changed since" },
+            "directive_set_hash": { "type": ["string", "null"], "description": "sha256 of the ratified directive set; freezes at ratification — any later edit is a new gate" },
+            "ratified_at": { "type": ["string", "null"], "format": "date-time" },
+            "ratified_by": { "type": ["string", "null"], "description": "Always Doug; recorded verbatim from his message" },
+            "audit_policy": {
+              "type": ["object", "null"],
+              "description": "Numerical stop-rule parameters recorded at ratification (schema 1.1)",
+              "required": ["recall_threshold", "attribution_threshold", "sample_fraction"],
+              "additionalProperties": false,
+              "properties": {
+                "recall_threshold": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+                "attribution_threshold": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+                "sample_fraction": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 }
+              }
+            }
+          }
+        },
+        "gate2_rulings": {
+          "type": "object",
+          "required": ["status"],
+          "additionalProperties": false,
+          "properties": {
+            "status": { "enum": ["pending", "presented", "ruled"] },
+            "rulings": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["candidate_file", "sha256", "ruling", "at"],
+                "additionalProperties": false,
+                "properties": {
+                  "candidate_file": { "type": "string" },
+                  "sha256": { "type": "string" },
+                  "ruling": { "enum": ["approved", "approved_with_edits", "rejected", "deferred"] },
+                  "destination": { "type": ["string", "null"] },
+                  "credit_notes": { "type": ["string", "null"] },
+                  "at": { "type": "string", "format": "date-time" }
+                }
+              }
+            },
+            "staging_disposition": {
+              "description": "BINDING (plan addendum note 2): recorded at Gate 2 for the completed staging folder. Deletion only ever by proposal (Hard Rail #8).",
+              "type": ["object", "null"],
+              "required": ["disposition", "at"],
+              "additionalProperties": false,
+              "properties": {
+                "disposition": { "enum": ["retain", "relocate_proposed", "deletion_proposed"] },
+                "detail": { "type": ["string", "null"] },
+                "at": { "type": "string", "format": "date-time" }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "runs": {
+      "type": "array",
+      "description": "Append-only. Every script or agent execution that reads or writes program state.",
+      "items": {
+        "type": "object",
+        "required": ["run_id", "stage", "assistant", "started_at", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "run_id": { "type": "string", "pattern": "^r\\d{4}$" },
+          "stage": { "enum": ["s0_acquire", "s1_normalize", "s2_survey", "s3_deep_passes", "s4_merge_validate", "s5_canonical_intake", "admin"] },
+          "directive_id": { "type": ["string", "null"] },
+          "chunk_id": { "type": ["string", "null"] },
+          "assistant": { "type": "string" },
+          "started_at": { "type": "string", "format": "date-time" },
+          "finished_at": { "type": ["string", "null"], "format": "date-time" },
+          "status": { "enum": ["running", "complete", "interrupted", "failed"] },
+          "input_hashes": { "type": "object", "additionalProperties": { "type": "string", "pattern": "^[0-9a-f]{64}$" } },
+          "output_hashes": { "type": "object", "additionalProperties": { "type": "string" } },
+          "model_tier": { "enum": ["none", "economy", "balanced", "frontier", null], "description": "Tier from MODEL_TIER_MAP.json, set by start_model_run; null for script runs (schema 1.1)" },
+          "model": { "type": ["string", "null"], "description": "Concrete model name for model runs (schema 1.1)" },
+          "budget_scope": { "type": ["string", "null"], "description": "Budget scope this model run draws from (stage or gate1_proposal/calibration/audit/orchestration; schema 1.1)" },
+          "reserved_tokens": { "type": ["integer", "null"], "description": "Active pre-dispatch reservation, counted against the scope ceiling until finish/abort (schema 1.1)" },
+          "escalation_reason": { "type": ["string", "null"], "description": "REQUIRED for frontier-tier runs — no silent escalation (schema 1.1)" },
+          "tokens_in": { "type": ["integer", "null"], "description": "Estimated or actual input tokens (schema 1.1)" },
+          "tokens_out": { "type": ["integer", "null"], "description": "Estimated or actual output tokens (schema 1.1)" },
+          "notes": { "type": ["string", "null"] }
+        }
+      }
+    },
+
+    "anomalies": {
+      "type": "array",
+      "description": "The quality/attribution caveat register the 12tone program kept in prose; here it is machine state.",
+      "items": {
+        "type": "object",
+        "required": ["anomaly_id", "kind", "description", "status", "at"],
+        "additionalProperties": false,
+        "properties": {
+          "anomaly_id": { "type": "string", "pattern": "^a\\d{4}$" },
+          "item_id": { "type": ["string", "null"] },
+          "kind": { "enum": ["corrupt_item", "misgraded_caption", "doubled_transcript", "guest_attribution", "naming_conflict", "citation_ambiguous", "schema_version_mismatch", "dependency_missing", "checksum_mismatch", "other"] },
+          "description": { "type": "string" },
+          "status": { "enum": ["open", "resolved", "superseded", "for_doug"] },
+          "blocking": { "type": "boolean", "default": false },
+          "scope": { "type": ["string", "null"], "description": "Budget scope / stage an open blocking anomaly blocks; null = program-wide, blocks everything (schema 1.1)" },
+          "resolution": {
+            "type": ["object", "null"],
+            "description": "The recorded ruling that cleared a blocking anomaly — the only way it stops blocking (schema 1.1)",
+            "required": ["ruling", "by", "at"],
+            "additionalProperties": false,
+            "properties": {
+              "ruling": { "type": "string" },
+              "by": { "type": "string" },
+              "at": { "type": "string", "format": "date-time" }
+            }
+          },
+          "at": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+
+    "dependencies": {
+      "type": "object",
+      "required": ["music_file_intake"],
+      "additionalProperties": false,
+      "properties": {
+        "music_file_intake": {
+          "type": "object",
+          "description": "HARD Stage-5 dependency. Verified before Stage 5 starts; if unavailable the controller stops with a handoff — it never imitates the Gate.",
+          "required": ["status"],
+          "additionalProperties": false,
+          "properties": {
+            "status": { "enum": ["unverified", "verified", "unavailable"] },
+            "location": { "type": ["string", "null"] },
+            "version_or_checksum": { "type": ["string", "null"] },
+            "verified_at": { "type": ["string", "null"], "format": "date-time" }
+          }
+        },
+        "prose_normalizer": {
+          "type": "object",
+          "description": "P4 binding: 03_ENGINES_AND_TOOLS/web-projection/merge_report.py::norm",
+          "required": ["status"],
+          "additionalProperties": false,
+          "properties": {
+            "status": { "enum": ["unverified", "verified", "unavailable"] },
+            "location": { "type": ["string", "null"] },
+            "checksum": { "type": ["string", "null"] },
+            "verified_at": { "type": ["string", "null"], "format": "date-time" }
+          }
+        }
+      }
+    },
+
+    "stage5_allowlist": {
+      "type": ["array", "null"],
+      "description": "BINDING (plan addendum note 1): the EXACT files Stage 5 passes to music-file-intake — approved markdown files + hashes only, never a folder.",
+      "items": {
+        "type": "object",
+        "required": ["file", "sha256"],
+        "additionalProperties": false,
+        "properties": {
+          "file": { "type": "string" },
+          "sha256": { "type": "string" }
+        }
+      }
+    },
+
+    "budget": {
+      "type": ["object", "null"],
+      "description": "Per-SCOPE budget rulings (the six stages + gate1_proposal, calibration, audit, orchestration), approved by Doug via state.py set-budget — no ceiling, no launch; max_tier is Doug's tier authorization for the scope (schema 1.1; MODEL_ROUTING_POLICY.md)",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["ceiling_tokens", "max_tier", "approved_by", "at"],
+        "additionalProperties": false,
+        "properties": {
+          "ceiling_tokens": { "type": "integer", "minimum": 1 },
+          "max_tier": { "enum": ["economy", "balanced", "frontier"] },
+          "approved_by": { "type": "string", "description": "Recorded protocol assertion — the protocol requires this be Doug's word, and the record makes violations inspectable; it is not cryptographic proof of identity" },
+          "at": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+
+    "migrations": {
+      "type": ["array", "null"],
+      "description": "Recorded schema migrations (state.py migrate-state) — never silent; each preserves the pre-migration hash and a backup file (schema 1.1)",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "at", "by", "pre_migration_sha256", "backup"],
+        "additionalProperties": false,
+        "properties": {
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "at": { "type": "string", "format": "date-time" },
+          "by": { "type": "string" },
+          "pre_migration_sha256": { "type": "string" },
+          "backup": { "type": "string", "description": "Backup filename beside STATE.json" }
+        }
+      }
+    },
+
+    "audit_results": {
+      "type": ["array", "null"],
+      "description": "Duplicate-audit results per audited stage, compared against the Gate-1 audit policy; audited stages cannot complete without a passing latest result (schema 1.1)",
+      "items": {
+        "type": "object",
+        "required": ["stage", "recall", "attribution", "sample_fraction", "passed", "run_watermark", "artifacts_digest", "population", "by", "at"],
+        "additionalProperties": false,
+        "properties": {
+          "stage": { "enum": ["s2_survey", "s3_deep_passes"] },
+          "run_watermark": { "type": ["string", "null"], "description": "Last run_id for the stage at audit time; later model output invalidates the audit (schema 1.1)" },
+          "artifacts_digest": { "type": "string", "description": "sha256 computed by REHASHING every recorded artifact's current bytes at audit time (missing/changed/escaped files refuse); recomputed and matched at stage completion (schema 1.1)" },
+          "population": { "type": "integer", "minimum": 1, "description": "Completed model runs with outputs at audit time — an audit over an empty population is refused (schema 1.1)" },
+          "recall": { "type": "number", "minimum": 0, "maximum": 1 },
+          "attribution": { "type": "number", "minimum": 0, "maximum": 1 },
+          "sample_fraction": { "type": "number", "minimum": 0, "maximum": 1 },
+          "passed": { "type": "boolean" },
+          "by": { "type": "string" },
+          "at": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+
+    "writer": {
+      "type": "object",
+      "required": ["revision", "last_writer", "updated_at"],
+      "additionalProperties": false,
+      "properties": {
+        "revision": { "type": "integer", "minimum": 0, "description": "Monotonic; every write increments by exactly 1. A resume that reads revision N and writes anything other than N+1 has detected a concurrent writer — stop and flag." },
+        "last_writer": { "type": "string" },
+        "updated_at": { "type": "string", "format": "date-time" }
+      }
+    }
+  },
+
+  "$defs": {
+    "stage": {
+      "type": "object",
+      "required": ["status"],
+      "additionalProperties": false,
+      "properties": {
+        "status": { "enum": ["pending", "in_progress", "complete", "blocked"] },
+        "started_at": { "type": ["string", "null"], "format": "date-time" },
+        "completed_at": { "type": ["string", "null"], "format": "date-time" },
+        "blocking_anomaly": { "type": ["string", "null"] },
+        "chunk_progress": {
+          "type": ["object", "null"],
+          "description": "chunk_id -> status, for chunked stages (s2, s3 per directive uses directive_id:chunk_id keys)",
+          "additionalProperties": { "enum": ["pending", "in_progress", "complete"] }
+        },
+        "artifacts": { "type": ["object", "null"], "additionalProperties": { "type": "string" }, "description": "artifact path -> sha256" }
+      }
+    }
+  }
+}

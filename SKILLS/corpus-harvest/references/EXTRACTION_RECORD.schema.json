@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "corpus-harvest/EXTRACTION_RECORD.schema.json",
+  "title": "corpus-harvest extraction record (one JSONL line)",
+  "description": "JSONL is the authority; markdown is generated for review. Field set per plan v0.3 provenance contract + addendum note 3 (generated_by_ai; relation carries quotation/paraphrase/synthesis).",
+  "type": "object",
+  "required": [
+    "record_id", "source_id", "item_id", "source_locator", "acquired_at",
+    "quote_or_claim", "relation", "claim_type", "speaker", "transcript_origin",
+    "quality_grade", "verification_status", "directive_id", "run_id",
+    "generated_by_ai"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "record_id": { "type": "string", "description": "Unique within the program, e.g. '<directive_id>-<seq>'" },
+    "source_id": { "type": "string", "description": "= program.source_slug" },
+    "item_id": { "type": "string", "description": "Corpus item (e.g. YouTube video ID, or local-folder item id from the manifest)" },
+    "source_locator": { "type": "string", "description": "REQUIRED — URL, file path, or feed ref for the item" },
+    "source_url": { "type": ["string", "null"] },
+    "published_at": { "type": ["string", "null"], "description": "ISO date if known, else null" },
+    "acquired_at": { "type": "string", "description": "ISO date-time the corpus copy was acquired (from the acquisition receipt)" },
+    "quote_or_claim": { "type": "string" },
+    "relation": { "enum": ["quotation", "paraphrase", "synthesis"] },
+    "claim_type": {
+      "enum": ["fact", "opinion", "creator_claimed_coinage"],
+      "description": "creator_claimed_coinage: the corpus can prove the creator CLAIMS or USES a term as his own — never global originality"
+    },
+    "speaker": { "type": "string", "description": "Who said it — the creator, a named guest, or 'unattributed'" },
+    "transcript_origin": { "enum": ["creator_captions", "asr", "provided_file", "mixed"] },
+    "quality_grade": { "enum": ["verbatim", "asr", "mixed", "corrupt"] },
+    "verification_status": {
+      "enum": ["pending", "verified", "approximate", "ambiguous", "not_found"],
+      "description": "Set by validate_citations.py. ASR-origin quotes stay 'approximate' and are barred from print-candidate status until verified against audio. 'ambiguous' (repeated/multiple matches) FAILS CLOSED — flagged for review, never auto-resolved."
+    },
+    "time_range": {
+      "type": ["object", "null"],
+      "description": "Attached mechanically by the citation validator from SEGMENTS; null until validated",
+      "required": ["start_s", "end_s"],
+      "additionalProperties": false,
+      "properties": {
+        "start_s": { "type": "number", "minimum": 0 },
+        "end_s": { "type": "number", "minimum": 0 }
+      }
+    },
+    "directive_id": { "type": "string", "pattern": "^D\\d{2}$" },
+    "run_id": { "type": "string" },
+    "generated_by_ai": { "const": true },
+    "notes": { "type": ["string", "null"] }
+  }
+}

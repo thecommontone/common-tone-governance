@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "corpus-harvest/SEGMENTS.schema.json",
+  "title": "corpus-harvest timestamped segment (one JSONL line)",
+  "description": "Per-item sidecar SEGMENTS/<item_id>.jsonl emitted by normalize.py BEFORE flattening to TXT. The citation validator string-matches quotes into these segments (via the shared prose normalizer) and attaches time ranges mechanically. The 12tone reference discarded timestamps; this sidecar is the new work that makes citations time-addressable.",
+  "type": "object",
+  "required": ["item_id", "seq", "start_s", "end_s", "text"],
+  "additionalProperties": false,
+  "properties": {
+    "item_id": { "type": "string" },
+    "seq": { "type": "integer", "minimum": 0, "description": "0-based cue order after dedupe" },
+    "start_s": { "type": "number", "minimum": 0 },
+    "end_s": { "type": "number", "minimum": 0 },
+    "text": { "type": "string", "description": "Cleaned cue text: tags stripped, entities unescaped, NBSP normalized, consecutive duplicates dropped" }
+  }
+}
