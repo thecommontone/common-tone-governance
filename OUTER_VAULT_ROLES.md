@@ -5,7 +5,7 @@ vault_root: /Users/dougsmith/Docs/__MY_BOOK/
 created: 2026-04-20
 author: Doug Smith (via Claude consultation)
 grounded_in:
- - ORG_CONSULTATION_2026-04-20.md (framework)
+ - ADMIN/STRATEGIC_PLANS/ORG_CONSULTATION_2026-04-20.md (framework)
  - VAULT_MAPS/vault_map_2026-04-18.md (folder inventory)
 status: canonical
 analog_of: The_Common_Tone_Project/00_CONSTITUTION/CONSTITUTION.md
@@ -19,7 +19,7 @@ location_note: "Moved from outer root to GOVERNANCE/ on 2026-05-07 as part of fo
 
 **Where this file lives.** `GOVERNANCE/OUTER_VAULT_ROLES.md` — moved here 2026-05-07 during the four-bucket reorganization. The root-level `OUTER_VAULT_ROLES.md` no longer exists.
 
-**What this document is not.** It is not a map — the cartographer-generated snapshot in `GOVERNANCE/VAULT_MAPS/` is the authoritative map. This file is *policy*; the map is *observation*. The two are companions.
+**What this document is not.** It is not a map. This file is *policy*. The cartographer-generated snapshots in `GOVERNANCE/VAULT_MAPS/` were the observation half, but the skill that made them was retired 2026-07-31 and they are now historical.
 
 ---
 
@@ -68,7 +68,7 @@ The operational business layer of The Common Tone brand. Anything that would liv
 In-progress development efforts: code, interactive tools, platform architecture, creative ideas, and operational CT-prefixed projects. These build or incubate outside the sanctum and migrate in only when proven.
 
 - `DEVELOPMENT/_DEV_INCUBATOR/` — The canonical four-stage incubator (Pitch → Build → Prove → Promote). Contains `SALAMI_PROJECT/` (1,242 songs, 126,272 chords in `salami_db.sqlite`; `salami_explorer.py` Flask app at localhost:8765). Run with `cd.../DEVELOPMENT/_DEV_INCUBATOR/SALAMI_PROJECT && python3 salami_explorer.py`.
-- `DEVELOPMENT/IDEA_LAB/` — Creative incubator using a folder-per-idea PR model (`IDEA-001` through `IDEA-015+`). AI assistants must check `IDEA_LAB/_INDEX.md` for ideas in `peer-review` status at the start of every session.
+- `DEVELOPMENT/IDEA_LAB/` — the **project** incubator, folder-per-idea (23 folders as of 2026-09-07). Ideas themselves live in `The_Common_Tone_Project/IDEA_LEDGER.md`; an idea that graduates gets a folder here. *(The startup obligation to check for `peer-review` items is in `CLAUDE.md` §1 step 6 — not restated here.)*
 - `DEVELOPMENT/PROJECTS/` — Operational CT-prefixed projects: `CT-Control-Center`, `CT-Email`, `CT-Infrastructure`, `CT-Intake`, `CT-Interactive`, `CT-Substack`, `CT-Textbook`, `CT-Vault`, `COMPOSER_FIELD_GUIDES/`, `PROJECT_SETUP_GUIDE.md`.
 - `DEVELOPMENT/CT_DIMENSIONS/` — Platform architecture planning docs. Working drafts; not yet operational.
 - `DEVELOPMENT/Excalidraw/` — Single working diagram (Apr 27).
@@ -83,11 +83,10 @@ In-progress development efforts: code, interactive tools, platform architecture,
 Items that describe, validate, or operate the vault. Not content — they *are* the classification system, the validation surface, and the render target.
 
 - `GOVERNANCE/OUTER_VAULT_ROLES.md` — this file.
-- `GOVERNANCE/VAULT_MAPS/` — Cartographer snapshots + `CURRENT_MAP.md` pointer. Owned by the `vault-cartographer` skill.
+- `GOVERNANCE/VAULT_MAPS/` — Cartographer snapshots + `CURRENT_MAP.md` pointer. **Unowned since 2026-07-31**, when the `vault-cartographer` skill was retired; the snapshots are historical and nothing regenerates them. A second `CURRENT_MAP.md` exists at `ADMIN/VAULT_MAPS/`; neither is being maintained.
 - `GOVERNANCE/RENDERS/` — Binary render artifact parking lot. **Canonical render target path: `/Users/dougsmith/Docs/__MY_BOOK/GOVERNANCE/RENDERS/`** (updated 2026-05-07; was `__MY_BOOK/RENDERS/`). Contents are frozen build artifacts — canonical `.md` source lives inside the sanctum. Sub-folders: `BrandBrief/`, `PlagalParadigm/`, field guide renders. Do not edit files here; do not promote them back inward.
-- `GOVERNANCE/VALIDATION_REPORTS/` — Output of validation, audit, and check scripts. Append-only; rotate quarterly if size becomes a concern.
-- `GOVERNANCE/SKILLS/` — Operational skill infrastructure. Contains `composer-instrument-guide/` (YAML specs, Python build scripts, `SKILL.md`). Read at runtime by the Cowork skill.
-- `GOVERNANCE/cowork_scheduled_tasks_skills/` — Scheduled-task `.md` shims (morning email, evening email, writer-watch).
+- *(There is no `GOVERNANCE/VALIDATION_REPORTS/`. Validation output lives at `The_Common_Tone_Project/VALIDATION_REPORTS/`; audit output at `ADMIN/AUDITS/`. Corrected 2026-09-07.)*
+- `GOVERNANCE/SKILLS/` — Operational skill source copies. Four as of 2026-09-07: `burin-notation/`, `composer-instrument-guide/`, `corpus-harvest/`, `music-file-intake/`. Read at runtime by the Cowork skill. *(Most Cowork skills have no source copy here — Doug's Claude account is the registry of record.)*
 
 **Note on `_SYSTEM/`.** The outer vault's `_SYSTEM/` folder lives at `__MY_BOOK/_SYSTEM/` (root, not inside GOVERNANCE/) because `The_Common_Tone_Project/_SYSTEM` is a symlink pointing to `../_SYSTEM`. Moving `_SYSTEM/` into GOVERNANCE/ would require updating that symlink. Policy: `_SYSTEM/` stays at root. It is Governance Layer infrastructure regardless of physical location.
 
@@ -125,9 +124,7 @@ Teaching materials produced for or used. Completely separate from the textbook p
 
 ### Role 3 — Adjacent (permanently at root)
 
-- `__MY COMPOSITION BOOK/`
-- `_MY JAZZ-BOOK/`
-- `_MY HISTORY BOOK/`
+*(Empty as of the 2026-09-07 re-review: `__MY COMPOSITION BOOK/`, `_MY JAZZ-BOOK/` and `_MY HISTORY BOOK/` are no longer on disk. The role is kept for future adjacent books.)*
 
 **Rule.** No automation ingests from these into the Machine without explicit human instruction.
 
@@ -135,8 +132,8 @@ Teaching materials produced for or used. Completely separate from the textbook p
 
 - `_ARCHIVE_BOOK_ITERATIONS/` — Historical drafts. Receives moves-in as the project evolves.
 - `WORKBOOK/` — Early workbook draft; candidate for fold-in to `_ARCHIVE_BOOK_ITERATIONS/`.
-- `ARCHIVE/` — One-file straggler; candidate for fold-in or removal.
-- `ADMIN/` — **the real outer-vault governance repository** (its own Git repo). The inner sanctum's `The_Common_Tone_Project/01_ADMIN_AND_POLICY` is a **symlink pointing here** (`01_ADMIN_AND_POLICY →../ADMIN`). *(Corrected 2026-07-01: an earlier note described this relationship backwards, as an APFS hardlink from ADMIN to the inner folder.)* **Do NOT move, rename, or delete** — the inner symlink and every `../ADMIN/...` reference in CLAUDE.md and the canonical-docs registry depend on it. This is an **active** layer, not read-only: handoffs, the Job Board, audits, and CEO reports write here constantly.
+- `ARCHIVE/` — the outer archive tree (`ARCHIVE/99_ARCHIVE/…`), **read-only** under `CLAUDE.md` rail 3. Never loaded into an active session. *(Reclassified 2026-09-07: it was described as a one-file straggler and a removal candidate; it is neither.)*
+- `ADMIN/` — **the real outer-vault governance repository** (its own Git repo). The inner sanctum's `The_Common_Tone_Project/01_ADMIN_AND_POLICY` is a **symlink pointing here** (`01_ADMIN_AND_POLICY →../ADMIN`). *(Corrected 2026-07-01: an earlier note described this relationship backwards, as an APFS hardlink from ADMIN to the inner folder.)* **Do NOT move, rename, or delete** — the inner symlink and every `../ADMIN/...` reference in CLAUDE.md and the canonical-docs registry depend on it. This is an **active** layer, not read-only: handoffs, audits, `PROJECT_STATUS.md` and `DASHBOARD/` write here constantly. *(The `ceo-daily-report` skill was retired 2026-07-31; there is no `CEO_REPORTS/` folder.)*
 
 ### Role 4b — Large Reference Corpora (do not move — sizes listed)
 
@@ -148,15 +145,35 @@ Teaching materials produced for or used. Completely separate from the textbook p
 - `SIBELIUS_FILES/` — Sibelius-score archive (20 MB).
 - `PAGES_DOCS/` — Pages/Word document archive (194 MB).
 - `_DOUGS_WRITING_STYLE/` — Reference corpus for brand-voice tooling (187 MB).
-- `THE_WRITERS_DEN_ARCHIVE/` — Active reference for `writer-watch` skill (264 KB).
+- `THE_WRITERS_DEN_ARCHIVE/` — Writers' Den reference corpus (264 KB). *(Its `writer-watch` skill was retired 2026-07-31; a `writer-watch-weekly` skill is installed for Claude Code, and whether it is the same tool has not been established. The corpus stands on its own.)*
 
 ### Role 4c — Legacy / Dormant
 
-- `JazzStandards-main/` — Third-party JSON corpus, vendored (1,186 days cold).
 - `SOME INGESTION/` — Old ingest residue, 3 files (742 days cold).
 - `GRFX_TEST_FOLDER/` — Graphics sandbox, 11 files (374 days cold).
 - `LISTENING_LISTS/` — Curated listening lists (452 days cold).
 - `EDUCATION/MUSIC_COLLEGE/` — College-era personal material (452 days cold). *(Path corrected 2026-07-01: lives under `EDUCATION/`, not at root.)*
+
+### Role 2b (dev/incubator) and Role 4 — folders classified in the 2026-09-07 re-review
+
+Twelve outer-root folders were named nowhere in this file. Classified from what each demonstrably
+contains, measured 2026-09-07:
+
+| Folder | Role | Note |
+|---|---|---|
+| `CLAUDE_DESIGN_KIT/` | **Governance Layer** — its own git repo (`common-tone-design-kit`, added 2026-08-10) | 112 files. Design brief, prompts, and the design system Claude works from. Listed in the `PROJECT_STATUS.md` repo table. |
+| `CLAUDEX_FOLDER/` | **Governance Layer** — shared AI workbench | Created 2026-09-07 (ruling A4). The Claude ⇄ Codex whiteboard named by `INNER_CONSCIOUSNESS.md` §4; log is `COLLAB_LOG.md`. **Not a git repo**, and not a source of truth — anything here that matters gets written into its proper home. |
+| `_NEW_SKILLS/` | Role 2b — Dev Incubator | 417 files. Skill development staging (e.g. `music-theory-handout`), outside the installed skill set. |
+| `claudex-loop-main/` | Role 2b — Dev Incubator | 37 files. Upstream source of the `claudex-loop` skill. Not a git repo; not the installed copy (that is `~/.claude/skills/claudex-loop/`). |
+| `SCRAPE_INFO/` | Role 2b — Dev Incubator (acquisition working state) | Wave 1/Wave 2 YouTube caption-acquisition queues, live reports and run records. Acquisition state, not research content; the transcripts themselves live in `_CT_RESEARCH_INTAKE/`. |
+| `CHORD_ROSETTA_AUDIT_2026-09-04/`, `CHORD_ROSETTA_AUDIT_2026-09-05/` | Role 4a — Project Archives | Dated audit working folders (scripts, repair plans, notation gallery). Self-dating; fold into `ARCHIVE/99_ARCHIVE/` when cold. |
+| `AliceinWonderland/` | Role 2b — Dev Incubator | 73 files. Autonovel/Alice chamber-pilot assets and briefs; companion to `The_Common_Tone_Project/_PROJECTS/AUTONOVEL_CHROMATIC_UNIVERSE/`. |
+| `CHANNEL STINGER FOLDER/` | Role 4b — media assets | 31 MB. Channel stinger project files, audio and video renders. Binary; do not promote inward. |
+| `SIBELIUS TEMPLATES-->EXPORTS/`, `SIBELIUS TEMPLATES-2-->EXPORTS/`, `SIBELIUS TEMPLATES-3-->EXPORTS/` | Role 4b — Large Reference Corpora (notation exports) | Sibelius template exports: SVG/PNG examples and MusicXML/MXL. Companions to `SIBELIUS_FILES/`. Candidates for consolidation into one folder — a Doug decision, not made here. |
+
+*(`common-tone-site/` was the twelfth. It was a self-marked archived prototype and moved
+2026-09-07 to `ARCHIVE/99_ARCHIVE/2026-09-07_common-tone-site-prototype/`, ruling B6. The
+canonical, deployed site repo is `~/Code/common-tone-site` — deploy is Doug only.)*
 
 ### Governance Layer (root-level)
 
@@ -164,16 +181,20 @@ Teaching materials produced for or used. Completely separate from the textbook p
 
 ### Root-Level Files (intentionally at root)
 
-- `Cowork_log_file.md` — Session log; must stay at root.
-- `COMMONTONE_FUNCTIONAL_MAP_DESCRIPTION_2026-05-01.md` — Canonical prose description of the entire enterprise; allowed at root per policy.
+- `AGENTS.md` — four-line pointer for Codex-style agents: the project root is `The_Common_Tone_Project/`, read its `CLAUDE.md`; outer folder roles are in this file. *(Rewritten 2026-09-07; it had been nothing but a `claude-mem` memory dump. The plugin's Codex context now writes to `~/.claude-mem/CODEX_CONTEXT.md` instead, and the freshness auditor has a blocker check that fails if a memory block reappears in it.)*
+
+- *(`Cowork_log_file.md` is **not** at the outer root — the single live session log is at the **vault** root, `The_Common_Tone_Project/Cowork_log_file.md`, per `CLAUDE.md` §3. Corrected 2026-09-07.)*
+- *(`COMMONTONE_FUNCTIONAL_MAP_DESCRIPTION_2026-05-01.md` was archived 2026-09-07 to `ARCHIVE/99_ARCHIVE/2026-09-07_ONE_CHOIR_BOOK/` — historical, not maintained, and no longer described as canonical.)*
 - `ABC_and_Verovio_Orientation.md` — Active reference (May 2026); fold into `_ARCHIVE_BOOK_ITERATIONS/` when no longer needed.
 - `.gitignore` — Version control config.
 
 ---
 
-## The Ingestion Gate (restated)
+## The Ingestion Gate
 
-The only authorized path from outer → inner is the `music-file-intake` skill. No human, no AI assistant, and no automation moves material across that boundary without going through intake. The **Promote** stage of `DEVELOPMENT/_DEV_INCUBATOR/` lifecycle is a special case: deliberate, logged, with Markdown conversion at the gate.
+The rule is `CLAUDE.md` rail 4 and is not restated here. One outer-vault specific note: the
+**Promote** stage of the `DEVELOPMENT/_DEV_INCUBATOR/` lifecycle is a special case — deliberate,
+logged, with Markdown conversion at the gate.
 
 ---
 
@@ -202,16 +223,18 @@ The only authorized path from outer → inner is the `music-file-intake` skill. 
 
 ## Cross-References
 
-- `ORG_CONSULTATION_2026-04-20.md` — the consulting memo that established this framework.
+- `ADMIN/STRATEGIC_PLANS/ORG_CONSULTATION_2026-04-20.md` — the consulting memo that established this framework. *(Path corrected 2026-09-07; it is not at the GOVERNANCE root.)*
 - `DEVELOPMENT/_DEV_INCUBATOR/README.md` — the incubator's lifecycle policy.
-- `GOVERNANCE/VAULT_MAPS/CURRENT_MAP.md` — the cartographer-generated outer-vault map.
+- `GOVERNANCE/VAULT_MAPS/CURRENT_MAP.md` — the last cartographer-generated outer-vault map (historical; the skill was retired 2026-07-31).
 - `The_Common_Tone_Project/00_CONSTITUTION/CONSTITUTION.md` — the inner-sanctum constitution.
 
 ---
 
-*Created 2026-04-20. Updated through 2026-05-07.*
+*Created 2026-04-20. Updated through 2026-09-07.*
 
-*2026-05-07 (four-bucket reorganization):* Outer vault restructured into four top-level buckets — `CT_BUSINESS/`, `DEVELOPMENT/`, `GOVERNANCE/`, `EDUCATION/`. This file moved from `__MY_BOOK/OUTER_VAULT_ROLES.md` to `__MY_BOOK/GOVERNANCE/OUTER_VAULT_ROLES.md`. `CANONICAL_DOCS_REGISTRY.yaml` IDEA_LAB path updated to `DEVELOPMENT/IDEA_LAB`. `MARKDOWN_FIRST_POLICY.md` RENDERS canonical path updated to `GOVERNANCE/RENDERS/`. Stray files cleaned: trumpet renders moved to `GOVERNANCE/RENDERS/`; `Cowork_log_file.md.tmp` and `AGENTS.md` deleted.
+*2026-05-07 (four-bucket reorganization):* Outer vault restructured into four top-level buckets — `CT_BUSINESS/`, `DEVELOPMENT/`, `GOVERNANCE/`, `EDUCATION/`. This file moved from `__MY_BOOK/OUTER_VAULT_ROLES.md` to `__MY_BOOK/GOVERNANCE/OUTER_VAULT_ROLES.md`. `CANONICAL_DOCS_REGISTRY.yaml` IDEA_LAB path updated to `DEVELOPMENT/IDEA_LAB`. `MARKDOWN_FIRST_POLICY.md` RENDERS canonical path updated to `GOVERNANCE/RENDERS/`. Stray files cleaned: trumpet renders moved to `GOVERNANCE/RENDERS/`; `Cowork_log_file.md.tmp` and `AGENTS.md` deleted. *(An outer-root `AGENTS.md` returned 2026-09-05, written by the claude-mem plugin; as of 2026-09-07 it is a four-line pointer to the vault's `CLAUDE.md` — see the Governance Layer entry above.)*
 
 ---
+*Review log: 2026-09-07 — dated re-review (One Choir Book, ruling B8; authority `ADMIN/AUDITS/2026-09-07_ONE_CHOIR_BOOK_DECISIONS.md`). Removed ownerships by skills retired 2026-07-31 (`vault-cartographer`, `ceo-daily-report`, `writer-watch`, and the `cowork_scheduled_tasks_skills/` shims); removed four folders no longer on disk (`__MY COMPOSITION BOOK/`, `_MY JAZZ-BOOK/`, `_MY HISTORY BOOK/`, `JazzStandards-main/`); corrected the `Cowork_log_file.md` location (vault root, not outer root), the `ORG_CONSULTATION` path, the `GOVERNANCE/VALIDATION_REPORTS/` claim and the `GOVERNANCE/SKILLS/` contents; reclassified `ARCHIVE/` as the protected read-only archive tree; recorded the outer `AGENTS.md` as a pointer and the functional map as archived; classified the twelve previously unclassified root folders plus the new `CLAUDEX_FOLDER/`. Dropped the restated startup obligation and made the "(restated)" Ingestion Gate section a pointer to `CLAUDE.md` rail 4 — this file is policy for the outer vault, and the rules live in the rulebook. Freshness timer reset by this review.*
+
 *Review log: 2026-07-01 — substantive review completed (Doug-commissioned). Corrections: ADMIN hardlink description reversed to symlink reality (§Role 4a); two Role 4b/4c paths re-homed under EDUCATION/. Full path reconciliation run against the live tree; all other directory references verified correct in context. Open observation for Doug: two VOICE_NOTES folders exist in the inner sanctum (root-level and 02_SOURCE_MATERIAL/) — consolidation is a Doug decision, not attempted here. Freshness timer reset by this review.*
