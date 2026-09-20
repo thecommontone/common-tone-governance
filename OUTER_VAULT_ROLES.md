@@ -131,13 +131,13 @@ Teaching materials produced for or used. Completely separate from the textbook p
 ### Role 4a — Project Archives
 
 - `_ARCHIVE_BOOK_ITERATIONS/` — Historical drafts. Receives moves-in as the project evolves.
-- `WORKBOOK/` — Early workbook draft; candidate for fold-in to `_ARCHIVE_BOOK_ITERATIONS/`.
+- `WORKBOOK/` — Doug's pitch-and-interval workbook exercises: 45 Sibelius files, 11 PDFs, 6 spreadsheets, 2023–24 (3 MB). **Stays where it is** *(reclassified 2026-09-19 on Doug's yes: it was described as an early draft and a fold-in candidate; it is original exercise material, not a superseded draft).*
 - `ARCHIVE/` — the outer archive tree (`ARCHIVE/99_ARCHIVE/…`), **read-only** under `CLAUDE.md` rail 3. Never loaded into an active session. *(Reclassified 2026-09-07: it was described as a one-file straggler and a removal candidate; it is neither.)*
 - `ADMIN/` — **the real outer-vault governance repository** (its own Git repo). The inner sanctum's `The_Common_Tone_Project/01_ADMIN_AND_POLICY` is a **symlink pointing here** (`01_ADMIN_AND_POLICY →../ADMIN`). *(Corrected 2026-07-01: an earlier note described this relationship backwards, as an APFS hardlink from ADMIN to the inner folder.)* **Do NOT move, rename, or delete** — the inner symlink and every `../ADMIN/...` reference in CLAUDE.md and the canonical-docs registry depend on it. This is an **active** layer, not read-only: handoffs, audits, `PROJECT_STATUS.md` and `DASHBOARD/` write here constantly. *(The `ceo-daily-report` skill was retired 2026-07-31; there is no `CEO_REPORTS/` folder.)*
 
 ### Role 4b — Large Reference Corpora (do not move — sizes listed)
 
-- `DATA_FOLDER/` — HDF5 datasets + derived JSON/TXT (3.1 GB). Needs provenance README.
+- `DATA_FOLDER/` — Song databases, song-analysis sets and downloaded research datasets (3.3 GB). Provenance note: `DATA_FOLDER/README.md` *(written 2026-09-19 from the folder's own evidence; unknowns are marked).*
 - `RESOURCES_REFERENCE/` — Album art, historical photos, diagrams (5.5 GB).
 - `REPERTOIRE_DOCUMENTED_POP_SONGS/` — Pop repertoire scans and transcriptions (15 GB).
 - `EDUCATION/REPERTOIRE_CLASSICAL_THEORY_EXAMPLES/` — Classical repertoire examples (1 GB). *(Path corrected 2026-07-01: lives under `EDUCATION/`, not at root.)*
@@ -145,6 +145,7 @@ Teaching materials produced for or used. Completely separate from the textbook p
 - `SIBELIUS_FILES/` — Sibelius-score archive (20 MB).
 - `PAGES_DOCS/` — Pages/Word document archive (194 MB).
 - `_DOUGS_WRITING_STYLE/` — Reference corpus for brand-voice tooling (187 MB).
+- `_DOUGS_VOICE/` — The unified voice database (created 2026-09-17): raw verbatim, lexicon, pedagogy, tangents, staged insertions, and the pontificate/voice-compass skill workflow. A reference database consulted when "Doug's voice" is needed, not a compile target — the three former inner voice folders (VOICE/VOICE_NOTES/VOICE_ARCHIVE) were merged here and retired. The pontificate and voice-compass skills write here. Companion to [[_DOUGS_WRITING_STYLE]].
 - `THE_WRITERS_DEN_ARCHIVE/` — Writers' Den reference corpus (264 KB). *(Its `writer-watch` skill was retired 2026-07-31; a `writer-watch-weekly` skill is installed for Claude Code, and whether it is the same tool has not been established. The corpus stands on its own.)*
 
 ### Role 4c — Legacy / Dormant
@@ -169,7 +170,11 @@ contains, measured 2026-09-07:
 | `CHORD_ROSETTA_AUDIT_2026-09-04/`, `CHORD_ROSETTA_AUDIT_2026-09-05/` | Role 4a — Project Archives | Dated audit working folders (scripts, repair plans, notation gallery). Self-dating; fold into `ARCHIVE/99_ARCHIVE/` when cold. |
 | `AliceinWonderland/` | Role 2b — Dev Incubator | 73 files. Autonovel/Alice chamber-pilot assets and briefs; companion to `The_Common_Tone_Project/_PROJECTS/AUTONOVEL_CHROMATIC_UNIVERSE/`. |
 | `CHANNEL STINGER FOLDER/` | Role 4b — media assets | 31 MB. Channel stinger project files, audio and video renders. Binary; do not promote inward. |
-| `SIBELIUS TEMPLATES-->EXPORTS/`, `SIBELIUS TEMPLATES-2-->EXPORTS/`, `SIBELIUS TEMPLATES-3-->EXPORTS/` | Role 4b — Large Reference Corpora (notation exports) | Sibelius template exports: SVG/PNG examples and MusicXML/MXL. Companions to `SIBELIUS_FILES/`. Candidates for consolidation into one folder — a Doug decision, not made here. |
+| `SIBELIUS_FILES/TEMPLATE_EXPORTS/` *(consolidated 2026-09-17)* | Role 4b — Large Reference Corpora (notation exports) | The three former `SIBELIUS TEMPLATES-->EXPORTS` batches were folded into `SIBELIUS_FILES/TEMPLATE_EXPORTS/` (`Templates-1/`, `Templates-2/`, `Basic-12-Bar-Blues/`) on Doug's decision, 2026-09-17. Root now holds one Sibelius folder. |
+| `LINES AND DOTS AND BLOBS PROJECT/` *(classified 2026-09-19)* | Role 4b — media assets | 45 MB. Camtasia video project for the Chapter 1.2 video, renders and chapter cover images. Binary; do not promote inward. Sits beside `CHANNEL STINGER FOLDER/`. |
+| `RESEARCH_OBSERVATORY/` *(classified 2026-09-19)* | Role 2b — research inbox (outside the Machine) | Weekly research digests, source records and an index, arriving as dated ZIP exports Doug reviews before merging. Its own `README.md` is the protocol. Nothing here is promoted inward without Doug's approval. |
+| `READER_RESOURCE_COMPENDIUM/` *(classified 2026-09-19)* | Role 2b — Dev Incubator (parked idea) | Reader Resources pilot and Unit I expansion; picks approved by Doug 2026-09-14 and 2026-09-19, publication not authorized. Parked in `IDEA_LEDGER.md` on 2026-09-18. |
+| `CLAUDE_DESIGN_KIT/CT_FIGURE_INDEX.html`, `CT_LOGO_INDEX.html` *(moved 2026-09-19)* | Governance Layer — design kit | Two self-contained browse-by-eye index pages (figures and notation; logos and brand), generated 2026-09-18. Moved in from the outer root. Untracked in the design-kit repo; 18 MB together. |
 
 *(`common-tone-site/` was the twelfth. It was a self-marked archived prototype and moved
 2026-09-07 to `ARCHIVE/99_ARCHIVE/2026-09-07_common-tone-site-prototype/`, ruling B6. The
